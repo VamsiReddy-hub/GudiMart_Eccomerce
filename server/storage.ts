@@ -315,6 +315,7 @@ export class MemStorage implements IStorage {
     
     // Add products
     const products: InsertProduct[] = [
+      // Electronics Category
       {
         name: "Smartphone X Pro",
         description: "Latest flagship smartphone with high-end specifications",
@@ -348,17 +349,173 @@ export class MemStorage implements IStorage {
       {
         name: "Smart Watch Ultra",
         description: "Premium smartwatch with health monitoring features",
-        price: 35900,
-        discountedPrice: 32900,
-        discountPercentage: 8,
+        price: 8999,
+        discountedPrice: 7499,
+        discountPercentage: 16,
         categoryId: 1,
-        brand: "WatchTech",
+        brand: "TechX",
         imageUrl: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a",
-        rating: 4.7,
-        reviewCount: 3789,
+        rating: 4.2,
+        reviewCount: 987,
         inStock: true,
         deliveryTime: "Free delivery by tomorrow",
-        specifications: { display: "1.8-inch AMOLED", battery: "48 hours", waterproof: true }
+        specifications: { display: "1.4-inch OLED", battery: "Up to 14 days", waterproof: "Yes", sensors: "Heart rate, GPS, Blood oxygen" }
+      },
+      {
+        name: "Wireless Noise-Cancelling Headphones",
+        description: "Premium over-ear headphones with active noise cancellation and 30-hour battery life",
+        price: 12999,
+        discountedPrice: 9999,
+        discountPercentage: 23,
+        categoryId: 1,
+        brand: "SoundMax",
+        imageUrl: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e",
+        rating: 4.6,
+        reviewCount: 1256,
+        inStock: true,
+        deliveryTime: "Free delivery in 2 days",
+        specifications: { type: "Over-ear", battery: "30 hours", connectivity: "Bluetooth 5.0", features: "Active noise cancellation, Voice assistant support" }
+      },
+      {
+        name: "4K Smart TV 55-inch",
+        description: "Ultra HD Smart TV with voice control and built-in streaming apps",
+        price: 45999,
+        discountedPrice: 37999,
+        discountPercentage: 17,
+        categoryId: 1,
+        brand: "VisionTech",
+        imageUrl: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1",
+        rating: 4.4,
+        reviewCount: 834,
+        inStock: true,
+        deliveryTime: "Free delivery within 3-5 days",
+        specifications: { resolution: "4K Ultra HD", size: "55 inch", smart: "Yes", ports: "HDMI x3, USB x2" }
+      },
+      {
+        name: "Bluetooth Wireless Speaker",
+        description: "Portable waterproof speaker with 360° sound and 12-hour battery life",
+        price: 3999,
+        discountedPrice: 2999,
+        discountPercentage: 25,
+        categoryId: 1,
+        brand: "SoundMax",
+        imageUrl: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1",
+        rating: 4.1,
+        reviewCount: 562,
+        inStock: true,
+        deliveryTime: "Free delivery by tomorrow",
+        specifications: { power: "20W", battery: "12 hours", waterproof: "IPX7", connectivity: "Bluetooth 5.0" }
+      },
+      
+      // Fashion Category
+      {
+        name: "Men's Casual Denim Jacket",
+        description: "Classic denim jacket with modern styling for casual wear",
+        price: 2499,
+        discountedPrice: 1799,
+        discountPercentage: 28,
+        categoryId: 2,
+        brand: "StyleLife",
+        imageUrl: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531",
+        rating: 4.3,
+        reviewCount: 412,
+        inStock: true,
+        deliveryTime: "Free delivery in 2 days",
+        specifications: { material: "Denim", fit: "Regular", occasion: "Casual", care: "Machine wash" }
+      },
+      {
+        name: "Women's Designer Handbag",
+        description: "Premium designer handbag with spacious compartments and elegant design",
+        price: 5999,
+        discountedPrice: 4299,
+        discountPercentage: 28,
+        categoryId: 2,
+        brand: "FashionElite",
+        imageUrl: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7",
+        rating: 4.7,
+        reviewCount: 328,
+        inStock: true,
+        deliveryTime: "Free delivery by tomorrow",
+        specifications: { material: "Genuine leather", size: "Medium", compartments: "3 main, 2 inner pockets", style: "Tote" }
+      },
+      {
+        name: "Athletic Running Shoes",
+        description: "Lightweight and cushioned running shoes for daily training",
+        price: 3499,
+        discountedPrice: 2799,
+        discountPercentage: 20,
+        categoryId: 2,
+        brand: "SportFlex",
+        imageUrl: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+        rating: 4.4,
+        reviewCount: 587,
+        inStock: true,
+        deliveryTime: "Free delivery in 2 days",
+        specifications: { material: "Breathable mesh", sole: "Rubber, EVA foam", closure: "Lace-up", activity: "Running, Training" }
+      },
+      
+      // Home & Kitchen Category
+      {
+        name: "Automatic Coffee Maker",
+        description: "Programmable coffee maker with built-in grinder and 10-cup capacity",
+        price: 7999,
+        discountedPrice: 5999,
+        discountPercentage: 25,
+        categoryId: 3,
+        brand: "HomePro",
+        imageUrl: "https://images.unsplash.com/photo-1608354580875-30bd4170a9e8",
+        rating: 4.5,
+        reviewCount: 423,
+        inStock: true,
+        deliveryTime: "Free delivery in 3 days",
+        specifications: { capacity: "10 cups", features: "Built-in grinder, Programmable timer", material: "Stainless steel, glass", warranty: "2 years" }
+      },
+      {
+        name: "Smart Robot Vacuum Cleaner",
+        description: "AI-powered robot vacuum with mapping technology and app control",
+        price: 19999,
+        discountedPrice: 16999,
+        discountPercentage: 15,
+        categoryId: 3,
+        brand: "CleanTech",
+        imageUrl: "https://images.unsplash.com/photo-1567689265373-7171aa885ef3",
+        rating: 4.6,
+        reviewCount: 312,
+        inStock: true,
+        deliveryTime: "Free delivery in 3-5 days",
+        specifications: { suction: "3000Pa", battery: "150 minutes runtime", features: "Mapping, App control, Voice compatible", warranty: "1 year" }
+      },
+      
+      // Beauty & Health Category
+      {
+        name: "Premium Hair Dryer",
+        description: "Professional-grade hair dryer with ionic technology and multiple heat settings",
+        price: 4999,
+        discountedPrice: 3499,
+        discountPercentage: 30,
+        categoryId: 4,
+        brand: "BeautyPro",
+        imageUrl: "https://images.unsplash.com/photo-1522338140505-bfc82acb0ca1",
+        rating: 4.5,
+        reviewCount: 289,
+        inStock: true,
+        deliveryTime: "Free delivery by tomorrow",
+        specifications: { power: "2100W", technology: "Ionic", settings: "3 heat, 2 speed", features: "Cool shot, Concentrator nozzle" }
+      },
+      {
+        name: "Facial Skincare Set",
+        description: "Complete skincare routine with cleanser, toner, serum, and moisturizer",
+        price: 3599,
+        discountedPrice: 2999,
+        discountPercentage: 16,
+        categoryId: 4,
+        brand: "BeautyPro",
+        imageUrl: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571",
+        rating: 4.7,
+        reviewCount: 512,
+        inStock: true,
+        deliveryTime: "Free delivery by tomorrow",
+        specifications: { items: "4 pieces", ingredients: "Natural extracts", skinType: "All types", benefits: "Hydration, anti-aging" }
       },
       {
         name: "Men's Formal Shirt",
