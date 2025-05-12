@@ -145,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({
                 </div>
               </div>
             ) : (
-              <Link href="/login" className="hidden md:flex items-center hover:text-accent">
+              <Link href="/auth" className="hidden md:flex items-center hover:text-accent">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 mr-1"
@@ -279,7 +279,7 @@ const Header: React.FC<HeaderProps> = ({
                 ) : (
                   <div>
                     <div>Hello, Guest</div>
-                    <Link href="/login" className="text-sm">Login / Sign Up</Link>
+                    <Link href="/auth" className="text-sm">Login / Sign Up</Link>
                   </div>
                 )}
               </div>
