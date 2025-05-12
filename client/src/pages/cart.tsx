@@ -118,7 +118,7 @@ const Cart: React.FC<CartProps> = ({ cartItems, userId }) => {
           </svg>
           <h2 className="text-xl font-medium text-dark mb-2">Please Login to View Your Cart</h2>
           <p className="text-gray-500 mb-6">You need to be logged in to view and manage your shopping cart</p>
-          <Link href="/login" className="btn-primary">
+          <Link href="/auth" className="btn-primary">
             Login Now
           </Link>
         </div>

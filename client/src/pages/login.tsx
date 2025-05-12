@@ -82,7 +82,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     setIsSubmitting(true);
     
     try {
-      const response = await apiRequest("POST", "/api/users/login", data);
+      const response = await apiRequest("POST", "/api/login", data);
       const user = await response.json();
       
       onLogin(user);
@@ -112,7 +112,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     try {
       const { confirmPassword, ...registerData } = data;
       
-      const response = await apiRequest("POST", "/api/users/register", registerData);
+      const response = await apiRequest("POST", "/api/register", registerData);
       const user = await response.json();
       
       onLogin(user);
