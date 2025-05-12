@@ -15,6 +15,7 @@ import {
   insertContentApprovalSchema,
   insertCalendarEntrySchema 
 } from "@shared/schema";
+import { setupAuth } from "./auth";
 
 // Initialize OpenAI
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY || "sk-demo-key" });
@@ -23,55 +24,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // API routes prefix
   const apiRouter = "/api";
   
-  // User routes
-  app.post(`${apiRouter}/users/register`, async (req: Request, res: Response) => {
-    try {
-      const userData = insertUserSchema.parse(req.body);
-      
-      // Check if user already exists
-      const existingUser = await storage.getUserByUsername(userData.username);
-      if (existingUser) {
-        return res.status(400).json({ message: "Username already exists" });
-      }
-      
-      const existingEmail = await storage.getUserByEmail(userData.email);
-      if (existingEmail) {
-        return res.status(400).json({ message: "Email already exists" });
-      }
-      
-      const user = await storage.createUser(userData);
-      res.status(201).json({ id: user.id, username: user.username, email: user.email, name: user.name });
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({ message: "Invalid input", errors: error.errors });
-      }
-      res.status(500).json({ message: "Failed to create user" });
-    }
-  });
-  
-  app.post(`${apiRouter}/users/login`, async (req: Request, res: Response) => {
-    try {
-      const { username, password } = z.object({
-        username: z.string(),
-        password: z.string()
-      }).parse(req.body);
-      
-      const user = await storage.getUserByUsername(username);
-      
-      if (!user || user.password !== password) {
-        return res.status(401).json({ message: "Invalid credentials" });
-      }
-      
-      // For demo purposes, we're returning the user directly
-      // In a real app, you would set a session or token
-      res.json({ id: user.id, username: user.username, email: user.email, name: user.name });
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        return res.status(400).json({ message: "Invalid input", errors: error.errors });
-      }
-      res.status(500).json({ message: "Login failed" });
-    }
-  });
+  // Set up authentication routes (/api/register, /api/login, /api/logout, /api/user)
+  setupAuth(app);
   
   // Category routes
   app.get(`${apiRouter}/categories`, async (_req: Request, res: Response) => {
