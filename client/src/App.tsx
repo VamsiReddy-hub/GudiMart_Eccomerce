@@ -10,6 +10,9 @@ import ProductDetail from "./pages/product-detail";
 import Cart from "./pages/cart";
 import Login from "./pages/login";
 import NotFound from "./pages/not-found";
+import Events from "./pages/events";
+import ContentPosts from "./pages/content-posts";
+import ContentCalendar from "./pages/content-calendar";
 import { apiRequest } from "./lib/queryClient";
 
 // Initial app state
@@ -140,6 +143,7 @@ function App() {
       onLogout={handleLogout}
     >
       <Switch>
+        {/* E-commerce routes */}
         <Route path="/" component={() => <Home onCategorySelect={handleCategoryFilter} />} />
         <Route 
           path="/products" 
@@ -153,7 +157,7 @@ function App() {
         />
         <Route 
           path="/product/:id" 
-          component={(params) => (
+          component={(params: any) => (
             <ProductDetail 
               productId={parseInt(params.id)} 
               onAddToCart={handleAddToCart}
@@ -170,6 +174,27 @@ function App() {
           )} 
         />
         <Route path="/login" component={() => <Login onLogin={handleLogin} />} />
+        
+        {/* Content scheduling routes */}
+        <Route 
+          path="/events" 
+          component={() => (
+            <Events userId={state.user?.id} />
+          )}
+        />
+        <Route 
+          path="/events/:eventId/content" 
+          component={(params: any) => (
+            <ContentPosts />
+          )}
+        />
+        <Route 
+          path="/events/:eventId/calendar" 
+          component={(params: any) => (
+            <ContentCalendar />
+          )}
+        />
+        
         <Route component={NotFound} />
       </Switch>
     </Layout>

@@ -128,6 +128,11 @@ const Header: React.FC<HeaderProps> = ({
                     <Link href="/wishlist" className="block px-4 py-2 text-sm text-gray-700 hover:bg-light">
                       Wishlist
                     </Link>
+                    <div className="border-t border-gray-100 my-1"></div>
+                    <Link href="/events" className="block px-4 py-2 text-sm text-gray-700 hover:bg-light">
+                      Content Manager
+                    </Link>
+                    <div className="border-t border-gray-100 my-1"></div>
                     <button 
                       onClick={onLogout}
                       className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-light"
