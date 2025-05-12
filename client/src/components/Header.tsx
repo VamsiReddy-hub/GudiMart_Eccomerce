@@ -71,8 +71,10 @@ const Header: React.FC<HeaderProps> = ({
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
+                onInput={(e: React.SyntheticEvent) => setSearchTerm((e.currentTarget as HTMLInputElement).value)}
                 placeholder="Search for products, brands and more"
                 className="w-full px-4 py-2 rounded-sm text-dark focus:outline-none"
+                style={{ zIndex: 10 }}
               />
               <button 
                 type="submit"
@@ -216,8 +218,10 @@ const Header: React.FC<HeaderProps> = ({
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              onInput={(e: React.SyntheticEvent) => setSearchTerm((e.currentTarget as HTMLInputElement).value)}
               placeholder="Search products..."
               className="w-full px-4 py-2 rounded-sm text-dark focus:outline-none"
+              style={{ zIndex: 10 }}
             />
             <button 
               type="submit"
