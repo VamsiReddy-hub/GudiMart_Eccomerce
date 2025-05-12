@@ -25,8 +25,6 @@ export interface ChatMessage {
 }
 
 export interface AppState {
-  user: User | null;
-  isLoggedIn: boolean;
   cart: CartItemWithProduct[];
   totalItems: number;
   categoryFilter: number | null;
