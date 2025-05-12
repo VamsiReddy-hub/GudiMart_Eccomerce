@@ -60,11 +60,15 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = 5000;
+  // Check if we're in VS Code (local environment) or Replit
+  const isVSCode = process.env.REPLIT_ENVIRONMENT === undefined;
+  
   server.listen({
     port,
-    host: "0.0.0.0",
-    reusePort: true,
+    host: isVSCode ? "localhost" : "0.0.0.0",
+    // Only use reusePort in Replit environment
+    ...(isVSCode ? {} : { reusePort: true }),
   }, () => {
-    log(`serving on port ${port}`);
+    log(`serving on port ${port} on ${isVSCode ? 'localhost' : '0.0.0.0'}`);
   });
 })();
