@@ -197,6 +197,122 @@ export class MemStorage implements IStorage {
     
     platforms.forEach(platform => this.createSocialPlatform(platform));
     
+    // Add sample events
+    const events: InsertEvent[] = [
+      {
+        name: "Summer Tech Festival 2025",
+        description: "Annual technology festival showcasing the latest innovations",
+        organizerId: 1,
+        startDate: new Date('2025-06-15'),
+        endDate: new Date('2025-06-18'),
+        location: "Tech Convention Center, New York",
+        imageUrl: "https://images.unsplash.com/photo-1540575467063-178a50c2df87"
+      },
+      {
+        name: "Fashion Week 2025",
+        description: "Exclusive fashion event featuring new designer collections",
+        organizerId: 1,
+        startDate: new Date('2025-09-05'),
+        endDate: new Date('2025-09-12'),
+        location: "Grand Plaza Hotel, Milan",
+        imageUrl: "https://images.unsplash.com/photo-1605289982774-9a6fef564df8"
+      },
+      {
+        name: "Global Marketing Summit",
+        description: "Conference for marketing professionals to discuss trends and strategies",
+        organizerId: 1,
+        startDate: new Date('2025-03-21'),
+        endDate: new Date('2025-03-23'),
+        location: "Business Center, London",
+        imageUrl: "https://images.unsplash.com/photo-1528605248644-14dd04022da1"
+      }
+    ];
+    
+    events.forEach(event => this.createEvent(event));
+    
+    // Add sample content posts
+    const contentPosts: InsertContentPost[] = [
+      {
+        title: "Announcing Summer Tech Festival 2025",
+        content: "We're excited to announce the dates for our annual Summer Tech Festival! Join us for three days of innovation, networking, and cutting-edge technology demonstrations. Early bird tickets now available!",
+        eventId: 1,
+        creatorId: 1,
+        status: "published",
+        scheduledFor: new Date('2025-02-15T09:00:00'),
+        publishedAt: new Date('2025-02-15T09:00:00'),
+        platforms: [1, 2, 3], // Facebook, Twitter, Instagram
+        tags: ["announcement", "technology", "innovation"],
+        mediaUrls: ["https://images.unsplash.com/photo-1540575467063-178a50c2df87"]
+      },
+      {
+        title: "Speaker Lineup Revealed",
+        content: "We're thrilled to reveal our amazing speaker lineup for the Summer Tech Festival 2025! Industry leaders from top tech companies will share insights on AI, blockchain, and sustainable technology.",
+        eventId: 1,
+        creatorId: 1,
+        status: "scheduled",
+        scheduledFor: new Date('2025-03-01T10:30:00'),
+        platforms: [1, 2, 3, 4], // Facebook, Twitter, Instagram, LinkedIn
+        tags: ["speakers", "experts", "technology"],
+        mediaUrls: ["https://images.unsplash.com/photo-1475721027785-f74eccf877e2"]
+      },
+      {
+        title: "Workshop Registration Open",
+        content: "Registration for our exclusive hands-on workshops is now open! Limited spots available for our AI, VR, and Cloud Computing sessions. Register now to secure your place.",
+        eventId: 1,
+        creatorId: 1,
+        status: "draft",
+        platforms: [1, 4], // Facebook, LinkedIn
+        tags: ["workshops", "learning", "registration"],
+        mediaUrls: []
+      }
+    ];
+    
+    contentPosts.forEach(post => this.createContentPost(post));
+    
+    // Add sample calendar entries
+    const calendarEntries: InsertCalendarEntry[] = [
+      {
+        eventId: 1,
+        title: "Social Media Announcement",
+        type: "post",
+        date: "2025-05-15",
+        time: "09:00",
+        color: "#4285F4",
+        description: "Announce ticket sales across all platforms",
+        postId: 1
+      },
+      {
+        eventId: 1,
+        title: "Speaker Promotions Begin",
+        type: "milestone",
+        date: "2025-05-20",
+        time: "10:00",
+        color: "#EA4335",
+        description: "Start promoting confirmed speakers"
+      },
+      {
+        eventId: 1,
+        title: "Early Bird Deadline",
+        type: "reminder",
+        date: "2025-06-01",
+        time: "23:59",
+        color: "#FBBC05",
+        description: "Last day for early bird ticket sales"
+      },
+      {
+        eventId: 1,
+        title: "Workshop Registration Post",
+        type: "post",
+        date: "2025-06-10",
+        time: "14:00",
+        color: "#34A853",
+        description: "Publish workshop registration details",
+        postId: 3
+      }
+    ];
+    
+    calendarEntries.forEach(entry => this.createCalendarEntry(entry));
+    
     // Add products
     const products: InsertProduct[] = [
       {
